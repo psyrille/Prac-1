@@ -13,7 +13,7 @@
         }
         body{
             font-family: 'Montserrat', sans-serif;
-            background-color: blue;
+            
         }
     </style>
 </head>
