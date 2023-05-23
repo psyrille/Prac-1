@@ -13,7 +13,7 @@
         }
         body{
             font-family: 'Montserrat', sans-serif;
-            
+            color:aqua;
         }
     </style>
 </head>
