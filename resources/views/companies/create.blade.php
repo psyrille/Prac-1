@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Add Company Form - Laravel 9 CRUD</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -54,10 +55,19 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Company Logo:</strong>
+                        <input type="file" accept="image/png, image/gif, image/jpeg" name="logo" class="form-control" placeholder="Company Logo" id="logo" enctype="multipart/form-data">
+                        @error('logo')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>
     </div>
 </body>
-
 </html>

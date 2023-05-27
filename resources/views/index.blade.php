@@ -37,21 +37,23 @@
         <table class="table table-bordered table-striped mt-5">
             <thead>
                 <tr class="table-primary">
-                    <th>S.No</th>
-                    <th>Company Name</th>
-                    <th>Company Email</th>
-                    <th>Company Address</th>
-                    <th width="280px">Action</th>
+                    <th style="text-align: center">Logo</th>
+                    <th style="text-align: center">S.No</th>
+                    <th style="text-align: center">Company Name</th>
+                    <th style="text-align: center">Company Email</th>
+                    <th style="text-align: center">Company Address</th>
+                    <th width="280px" style="text-align: center">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($companies as $company)
                     <tr>
-                        <td>{{ $company->id }}</td>
-                        <td>{{ $company->name }}</td>
-                        <td>{{ $company->email }}</td>
-                        <td>{{ $company->address }}</td>
-                        <td>
+                        <td><img src="{{asset('storage/images/'.$company->logo.'')}}" alt="" style="width: 50px; height: 50px"></td>
+                        <td style="text-align: center">{{ $company->id }}</td>
+                        <td style="text-align: center">{{ $company->name }}</td>
+                        <td style="text-align: center">{{ $company->email }}</td>
+                        <td style="text-align: center">{{ $company->address }}</td>
+                        <td style="text-align: center">
                             <form action="{{ route('companies.destroy',$company->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
                                 @csrf

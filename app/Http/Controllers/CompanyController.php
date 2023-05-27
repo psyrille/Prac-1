@@ -27,6 +27,7 @@ class CompanyController extends Controller
         return view('companies.create');
     }
 
+
     /**
     * Store a newly created resource in storage.
     *
@@ -34,14 +35,26 @@ class CompanyController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
+    {   
+       
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'address' => 'required',
+        //     'logo' => 'required',
+        // ]);
+
+        $name = $request->file('logo')->getClientOriginalName();
+        $request->file('logo')->storeAs('public/images', $name);
+    
+        Company::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'logo' => $request->file('logo')->getClientOriginalName(),
         ]);
         
-        Company::create($request->post());
 
         return redirect()->route('companies.index')->with('success','Company has been created successfully.');
     }
