@@ -94,6 +94,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
+            
         ]);
         
         $company->fill($request->post())->save();
