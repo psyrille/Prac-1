@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .container{
             height: 100vh;
@@ -19,6 +21,9 @@
 </head>
 <body>
     <div class="container mt-2 d-flex flex-column align-items-center justify-content-center">
+        <div class="row d-flex justify-content-end" style="width: 100%">
+            <button class="btn btn-danger" id="btn-logout"><i class="fa-solid fa-power-off"></i></button>
+        </div>
         <div class="row">
             <div class="col-lg-12 margin-tb d-flex flex-column align-items-center mb-3">
                 <div class="pull-left">
@@ -68,4 +73,10 @@
         {!! $companies->links() !!}
     </div>
 </body>
+<script>
+    $('#btn-logout').click(function (e) { 
+        e.preventDefault();
+        window.location.href = "/";
+    });
+</script>
 </html>
